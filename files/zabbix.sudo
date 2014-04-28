@@ -1,0 +1,9 @@
+# THIS FILE IS MANAGED BY PUPPET
+#
+# sudo settings for Zabbix Agent
+
+Defaults:zabbix !authenticate,!requiretty
+
+Cmnd_Alias    DISCOVERY = /bin/netstat --tcp --listening --numeric --program, /bin/netstat --udp --listening --numeric --program, /usr/sbin/dmidecode -s [a-zA-Z-]*, /usr/sbin/service [[\:alpha\:]]* [[\:alpha\:]]*, /usr/sbin/postqueue -p, /usr/sbin/qshape
+
+zabbix  ALL=(root)  NOPASSWD:DISCOVERY

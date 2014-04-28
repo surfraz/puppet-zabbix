@@ -1,0 +1,9 @@
+fixtures:
+  repositories:
+    "stdlib": "https://github.com/puppetlabs/puppetlabs-stdlib"
+    "wget": "https://github.com/maestrodev/puppet-wget"
+    "apt": "https://github.com/puppetlabs/puppetlabs-apt"
+    "mysql": "https://github.com/puppetlabs/puppetlabs-mysql"
+    "editfile": "https://github.com/mstrauss/puppet-editfile"
+  symlinks:
+    "zabbix": "#{source_dir}"

@@ -12,6 +12,12 @@ class zabbix (
   $dbserver    = $zabbix::dbserver,
   $server      = $zabbix::server
 ) {
+
+  # only works on Ubuntu at the moment
+  if $::osfamily != 'Debian' {
+    fail("unsupported osfamily: $::osfamily")
+  }
+
   require 'wget'
 
   wget::fetch { 'zabbix repo installer':

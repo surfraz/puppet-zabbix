@@ -36,5 +36,19 @@ describe 'zabbix' do
 
       end
     end
+
+    context 'When I install on Windows it' do
+      let :facts do {
+        :osfamily  => 'Windows',
+        :lsbdistid => '8'
+      }
+      end
+
+      it 'should fail to compile' do
+        expect {
+          should compile.with_all_deps
+        }.to raise_error(/unsupported osfamily/)
+      end
+    end
   end
 end

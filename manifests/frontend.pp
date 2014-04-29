@@ -2,20 +2,24 @@
 class zabbix::frontend {
   require zabbix
 
+  package { 'libapache2-mod-php5':
+    ensure    => installed,
+  } ->
+
   package { 'zabbix-frontend-php':
     ensure    => installed,
+  } ->
+
+  # this significantly speeds up zabbix interface
+  package { 'php5-xcache':
+    ensure    => installed,
+    notify    => Exec['reload apache config'],
   }
 
   file { '/usr/share/zabbix/robots.txt':
     ensure    => present,
     content   => template('zabbix/robots.txt.erb'),
     require   => Package['zabbix-frontend-php'],
-  }
-
-  # this significantly speeds up zabbix interface
-  package { 'php5-xcache':
-    ensure    => installed,
-    notify    => Exec['reload apache config'],
   }
 
   file { '/etc/zabbix/web/zabbix.conf.php':

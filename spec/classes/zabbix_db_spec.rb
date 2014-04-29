@@ -25,12 +25,14 @@ describe 'zabbix::db' do
         end
 
         it 'should create zabbix db' do
-          should contain_mysql__db('zabbix')
+          should contain_mysql__db('zabbix').with(
+              :require      => 'Class[Mysql::Server]'
+                 )
 
           should contain_exec('zabbix db schema').with(
               :command      => /schema\.sql/,
               :unless       => /test -f/,
-              :require      => 'Mysql::Db[zabbix]',
+              :require      => [ 'Mysql::Db[zabbix]', 'Package[zabbix-server-mysql]' ]
                  )
 
           should contain_exec('zabbix db images').with(

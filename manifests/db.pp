@@ -8,6 +8,7 @@ class zabbix::db {
     password => $zabbix::dbpassword,
     host     => $zabbix::dbserver,
     grant    => ['SELECT','INSERT','UPDATE','DELETE','CREATE','DROP','ALTER','INDEX'],
+    require  => Class['Mysql::Server'],
   }
 
   $schemapath = '/usr/share/zabbix-server-mysql'
@@ -16,7 +17,7 @@ class zabbix::db {
   exec { 'zabbix db schema':
     command   => "mysql ${defaults} zabbix < ${schemapath}/schema.sql && touch ${schemapath}/.schema.loaded",
     unless    => "test -f ${schemapath}/.schema.loaded",
-    require   => Mysql::Db['zabbix'],
+    require   => [ Mysql::Db['zabbix'], Package['zabbix-server-mysql'] ],
     path      => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
   } ->
 

@@ -25,6 +25,10 @@ describe 'zabbix::frontend' do
               :ensure       => 'installed',
                  )
 
+          should contain_package('libapache2-mod-php5').with(
+                     :ensure       => 'installed',
+                 )
+          
           should contain_package('php5-xcache').with(
               :ensure     => 'installed',
               :notify     => 'Exec[reload apache config]',

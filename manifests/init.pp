@@ -13,7 +13,7 @@ class zabbix (
   $server      = $zabbix::server
 ) {
 
-  # only works on Ubuntu at the moment
+  # only works on Ubuntu/Debian at the moment
   if $::osfamily != 'Debian' {
     fail("unsupported osfamily: $::osfamily")
   }

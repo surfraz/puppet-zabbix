@@ -9,9 +9,12 @@ Puppet::Type.type(:zabbix_hostgroup).provide(:zabbixapi) do
 
   mk_resource_methods
 
+  def self.prepare_zabbix_connection(resource)
+    $zabbix_api ||= ZabbixApi.connect( :url => resource[:api_url], :user => resource[:api_user], :password => resource[:api_password] )
+  end
+
   def self.instances
     zabbix_hostgroups = []
-    $zabbix_api = ZabbixApi.connect( :url => 'http://127.0.0.1/api_jsonrpc.php', :user => 'Admin', :password => 'zabbix' )
     hostgroups = $zabbix_api.hostgroups.get(:id => 0)
     hostgroups.each do |hostgroup|
       zabbix_hostgroups << new(:name => hostgroup['name'], :internal => hostgroup['internal'], :groupid => hostgroup['groupid'], :flags => hostgroup['flags'], :ensure => :present)
@@ -21,6 +24,7 @@ Puppet::Type.type(:zabbix_hostgroup).provide(:zabbixapi) do
 
   def self.prefetch(resources)
     resources.each do |name, resource|
+      $zabbix_api || self.prepare_zabbix_connection(resource)
       if found = instances.find { |h| h.name == name }
         result = { :ensure => :present }
         result[:name] = found.name
@@ -31,7 +35,6 @@ Puppet::Type.type(:zabbix_hostgroup).provide(:zabbixapi) do
       else
         resource.provider = new(:ensure => :absent)
       end
-      #resource.provider.zabbix_hostgroup = name
     end
   end
   

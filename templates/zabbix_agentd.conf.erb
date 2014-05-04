@@ -145,6 +145,7 @@ ServerActive=<%= scope['zabbix::server'] %>
 # Mandatory: no
 # Default:
 # Hostname=
+Hostname=<%= scope['::fqdn'] %>
 
 ### Option: HostnameItem
 # Item used for generating Hostname if it is undefined.

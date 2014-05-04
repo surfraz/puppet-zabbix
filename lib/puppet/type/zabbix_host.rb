@@ -7,8 +7,8 @@ Puppet::Type.newtype(:zabbix_host) do
   ensurable
 
   newparam(:name, :namevar => true) do
-    isrequired
     desc 'host technical name'
+    isrequired
   end
 
   newproperty(:groups, :array_matching => :all) do
@@ -54,12 +54,17 @@ Puppet::Type.newtype(:zabbix_host) do
     end
   end
 
-  autorequire(:zabbix_template) do
+  autorequire(:zabbix_template_file) do
     [self[:templates]]
+  end
+
+  autorequire(:service) do
+    'zabbix-server'
   end
 
   newproperty(:ip) do
     desc 'ip interface defined on host'
+    defaultto '127.0.0.1'
   end
 
   newproperty(:port) do

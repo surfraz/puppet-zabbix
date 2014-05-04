@@ -33,6 +33,20 @@ describe 'zabbix::agent' do
               :require  => 'Package[zabbix-agent]',
               :notify    => 'Service[zabbix-agent]',
                  )
+
+          should contain_file('/var/lib/zabbix').with(
+              :owner    => 'zabbix',
+              :group    => 'zabbix',
+                 )
+        end
+
+        it 'should copy mysql login file to zabbix home directory' do
+          should contain_file('/var/lib/zabbix/.my.cnf').with(
+              :source   => '/root/.my.cnf',
+              :mode     => '0600',
+              :owner    => 'zabbix',
+              :group    => 'zabbix',
+                 )
         end
 
         it 'should install zabbix agent with configuration' do

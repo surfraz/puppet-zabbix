@@ -1,35 +1,22 @@
 require 'uri'
 
-Puppet::Type.newtype(:zabbix_hostgroup) do
+Puppet::Type.newtype(:zabbix_template_file) do
 
-  @doc = 'This type provides the capability to manage zabbix hostgroups'
+  @doc = 'This type provides the capability to import a zabbix xml file template'
 
   ensurable
 
   newparam(:name, :namevar => true) do
+    desc 'template name'
     isrequired
-    desc 'hostgroup display name'
   end
 
-  newproperty(:groupid) do
-    desc 'hostgroup id (readonly)'
-    validate do |id|
-      raise ArgumentError, 'groupid is read-only'
-    end
+  newparam(:xml) do
+    desc 'xml template string to upload'
   end
 
-  newproperty(:flags) do
-    desc 'hostgroup flags are (readonly)'
-    validate do |flags|
-      raise ArgumentError, 'flags is read-only'
-    end
-  end
-
-  newproperty(:internal) do
-    desc 'hostgroup internal (readonly)'
-    validate do |internal|
-      raise ArgumentError, 'internal is read-only'
-    end
+  newparam(:templateid) do
+    desc 'template internal id'
   end
 
   autorequire(:service) do

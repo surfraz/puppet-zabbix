@@ -80,6 +80,7 @@ Puppet::Type.type(:zabbix_host).provide(:zabbixapi) do
     api.hosts.create_or_update(:host => @resource[:name],
                                 :groups => array_of_groupids,
                                 :templates => array_of_templateids,
+                                :inventory_mode => 1,
                                 :interfaces => [
                                     {
                                     :type => 1,
@@ -89,7 +90,10 @@ Puppet::Type.type(:zabbix_host).provide(:zabbixapi) do
                                     :port => @resource[:port],
                                     :useip => 1
                                     }
-                                ]
+                                ],
+                                :inventory => {
+                                    :location => 'Skyscape'
+                                }
     )
     @property_hash[:ensure] = :present
   end

@@ -16,6 +16,21 @@ class zabbix::agent (
     notify    => Service['zabbix-agent'],
   }
 
+  file { '/var/lib/zabbix':
+    ensure  => 'directory',
+    owner   => 'zabbix',
+    group   => 'zabbix',
+  }
+
+  # we need this to monitor the zabbix mysql server
+  file { '/var/lib/zabbix/.my.cnf':
+    ensure  => 'present',
+    source  => '/root/.my.cnf',
+    mode    => '0600',
+    owner   => 'zabbix',
+    group   => 'zabbix',
+  }
+
   file { '/etc/zabbix/zabbix_agentd.conf':
     ensure  => present,
     content => template('zabbix/zabbix_agentd.conf.erb'),

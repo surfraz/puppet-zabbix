@@ -11,6 +11,7 @@ group :development, :test do
   gem 'simplecov-rcov'
   gem 'simplecov'
   gem 'cover_me'
+  gem 'xml-simple'
 end
 
 if puppetversion = ENV['PUPPET_GEM_VERSION']

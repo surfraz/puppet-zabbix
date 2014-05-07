@@ -102,4 +102,30 @@ Puppet::Type.type(:zabbix_template_file).provide(:zabbixapi) do
     @property_hash.clear
   end
 
+  def xml
+    template_ids = []
+
+    @resource[:xml].scan(/<template>([^<]*)<\/template>/).each do |template|
+      template_ids << api.query(:method => 'template.get',
+                                :params => {
+                                    :search => {
+                                        :name => template.first}
+                                } ).first['templateid']
+    end
+
+    current_template_xml =
+        api.query(:method => 'configuration.export',
+                          :params => {
+                              :format => 'xml',
+                              :options => {
+                                  :templates => template_ids
+                              }
+                          }).gsub(/<date>.*<\/date>/, '')
+
+    return current_template_xml
+  end
+
+  def xml=(value)
+    create
+  end
 end

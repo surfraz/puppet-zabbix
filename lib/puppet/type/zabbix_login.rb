@@ -69,10 +69,27 @@ Puppet::Type.newtype(:zabbix_login) do
 
   newproperty(:password) do
     desc 'users password'
+    defaultto ''
 
-    # we cannot read this obviously!
-    def isinsync?(is)
-      true
+    def insync?(is)
+      should = @should
+      if should == '' or should == nil
+        return true
+      else
+        if is == 'FAILED_AUTH'
+          return false
+        else
+          return true
+        end
+      end
+    end
+
+    def is_to_s(newvalue)
+      '**********'
+    end
+
+    def should_to_s(newvalue)
+      '**********'
     end
   end
 

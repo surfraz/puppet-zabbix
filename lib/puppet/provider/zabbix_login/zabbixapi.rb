@@ -61,7 +61,23 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
 
   def create
     # generate a random password (not user accessible)
-    passwd = (0...60).map { ('a'..'z').to_a[rand(26)] }.join
+    if @resource[:password].empty?
+      passwd = (0...60).map { ('a'..'z').to_a[rand(26)] }.join
+    else
+      passwd = @resource[:password] ||(0...60).map { ('a'..'z').to_a[rand(26)] }.join
+    end
+
+
+    # get usergroup ids
+    group_ids = []
+    @resource[:usergroups].each do |groupname|
+      group_ids << api.query(:method => 'usergroup.get',
+                             :params => {
+                                 :search => {
+                                     :name => groupname
+                                 }
+                             }).first['usrgrpid']
+    end
 
     api.query(:method => 'user.create',
               :params => {
@@ -69,7 +85,8 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
                   :passwd => passwd,
                   :name => @resource[:firstname],
                   :surname => @resource[:lastname],
-                  :usrgrps => usergroups
+                  :type => @resource[:type],
+                  :usrgrps => group_ids
               }
     )
     @property_hash[:ensure] = :present
@@ -147,6 +164,23 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
               :params => {
                   :userid => @property_hash[:userid],
                   :usrgrps => usergroup_ids
+              })
+  end
+
+  def password
+    begin
+      result = ZabbixApi.connect( :url => resource[:api_url], :user => resource[:name], :password => resource[:password] )
+    rescue
+      result = 'FAILED_AUTH'
+    end
+    return result
+  end
+
+  def password=(value)
+    api.query(:method => 'user.update',
+              :params => {
+                  :userid => @property_hash[:userid],
+                  :passwd => @resource[:password]
               })
   end
 end

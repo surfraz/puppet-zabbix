@@ -75,8 +75,9 @@ class zabbix::agent (
   }
 
   service {'zabbix-agent':
-    ensure  => running,
-    enable  => true,
-    require => File['/etc/zabbix/zabbix_agentd.conf'],
+    ensure    => running,
+    enable    => true,
+    provider  => 'upstart',
+    require   => File['/etc/zabbix/zabbix_agentd.conf'],
   }
 }

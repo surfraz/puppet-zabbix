@@ -55,7 +55,7 @@ Puppet::Type.newtype(:zabbix_host) do
   end
 
   autorequire(:zabbix_template_file) do
-    [self[:templates]]
+    self[:templates]
   end
 
   autorequire(:service) do

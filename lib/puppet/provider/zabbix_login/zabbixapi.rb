@@ -10,7 +10,11 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
   mk_resource_methods
 
   def self.prepare_zabbix_connection(resource)
-    $zabbix_api ||= ZabbixApi.connect( :url => resource[:api_url], :user => resource[:api_user], :password => resource[:api_password] )
+    begin
+      $zabbix_api ||= ZabbixApi.connect( :url => resource[:api_url], :user => resource[:api_user], :password => resource[:api_password] )
+    rescue
+      $zabbix_api ||= ZabbixApi.connect( :url => resource[:api_url], :user => 'Admin', :password => 'zabbix' )
+    end
   end
 
   def self.instances
@@ -41,6 +45,7 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
   
   def api
     $zabbix_api
+    #ZabbixApi.connect( :url => resource[:api_url], :user => resource[:api_user], :password => resource[:api_password] )
   end
 
   def exists?
@@ -71,6 +76,7 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
     # get usergroup ids
     group_ids = []
     @resource[:usergroups].each do |groupname|
+      pp groupname
       group_ids << api.query(:method => 'usergroup.get',
                              :params => {
                                  :search => {

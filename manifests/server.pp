@@ -1,5 +1,9 @@
 # Zabbix server installation
-class zabbix::server {
+class zabbix::server (
+  $apiuser        = undef,
+  $apipassword    = undef,
+  $adminpassword  = undef,
+){
   require zabbix
 #  require jre
 
@@ -39,15 +43,18 @@ class zabbix::server {
   }
 
   service {'zabbix-server':
-    ensure  => running,
-    enable  => true,
-    require => File['/etc/zabbix/zabbix_server.conf'],
+    ensure    => running,
+    enable    => true,
+    provider  => 'upstart',
+    require   => File['/etc/zabbix/zabbix_server.conf'],
   }
 
   service {'zabbix-java-gateway':
-    ensure  => running,
-    enable  => true,
-    require => [ File['/etc/init.d/zabbix-java-gateway'],
+    ensure    => running,
+    enable    => true,
+    provider  => 'upstart',
+    require   => [ File['/etc/init.d/zabbix-java-gateway'],
                   Package['zabbix-java-gateway'], ],
   }
+
 }

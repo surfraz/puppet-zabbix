@@ -111,8 +111,9 @@ Puppet::Type.newtype(:zabbix_login) do
     end
   end
 
+
   autorequire(:zabbix_usergroup) do
-    [self[:usergroups]]
+    self[:usergroups]
   end
 
   autorequire(:service) do

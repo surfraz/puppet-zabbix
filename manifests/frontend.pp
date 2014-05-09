@@ -51,6 +51,5 @@ class zabbix::frontend {
     command       => 'service apache2 reload',
     refreshonly   => true,
     path          => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
-
   }
 }

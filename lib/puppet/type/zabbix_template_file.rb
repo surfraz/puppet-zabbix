@@ -2,15 +2,9 @@ require 'uri'
 require 'xmlsimple'
 
 def xml_cmp(a, b)
-  eq_all_but_zero = Object.new.instance_eval do
-    def ==(other)
-      Integer(other) == 0 ? false : true
-    end
-    self
-  end
-  a = XmlSimple.xml_in(a.to_s, 'normalisespace' => eq_all_but_zero)
-  b = XmlSimple.xml_in(b.to_s, 'normalisespace' => eq_all_but_zero)
-  a.to_hash == b.to_hash
+  a = XmlSimple.xml_in(a.to_s, 'normalisespace' => 2).hash
+  b = XmlSimple.xml_in(b.to_s, 'normalisespace' => 2).hash
+  a.to_s == b.to_s
 end
 
 Puppet::Type.newtype(:zabbix_template_file) do
@@ -33,12 +27,7 @@ Puppet::Type.newtype(:zabbix_template_file) do
     end
 
     def insync?(is)
-      should = @should
-      if xml_cmp(is, should)
-        return true
-      else
-        return false
-      end
+      xml_cmp(is, @should)
     end
 
     def should_to_s(newvalue)

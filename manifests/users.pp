@@ -43,6 +43,12 @@ class zabbix::users (
     api_password  => $apipassword,
   }
 
+  # ordering rules for zabbix providers
+  Zabbix_login[$apiuser] -> Zabbix_hostgroup <| |>
+  Zabbix_login[$apiuser] -> Zabbix_template_file <| |>
+  Zabbix_login[$apiuser] -> Zabbix_usergroup <| |>
+  Zabbix_login[$apiuser] -> Zabbix_host <| |>
+
   # set up API user and set admin password
   if $apiuser and $apipassword {
     zabbix_login {$apiuser:

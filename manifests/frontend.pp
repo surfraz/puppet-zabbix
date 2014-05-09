@@ -44,7 +44,14 @@ class zabbix::frontend {
     require   => Package['zabbix-frontend-php'],
     notify    => Exec['reload apache config'],
     path      => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
+  }
 
+  exec { 'enable ssl default vhost':
+    command   => 'a2enmod ssl && a2ensite default-ssl',
+    creates   => '/etc/apache2/sites-enabled/default-ssl',
+    require   => Package['zabbix-frontend-php'],
+    notify    => Exec['reload apache config'],
+    path      => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
   }
 
   exec { 'reload apache config':

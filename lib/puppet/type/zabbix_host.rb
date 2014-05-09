@@ -58,8 +58,8 @@ Puppet::Type.newtype(:zabbix_host) do
     self[:templates]
   end
 
-  autorequire(:service) do
-    'zabbix-server'
+  autorequire(:class) do
+    [ 'zabbix::server', 'zabbix::frontend']
   end
 
   newproperty(:ip) do

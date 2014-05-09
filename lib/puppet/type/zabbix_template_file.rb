@@ -54,8 +54,8 @@ Puppet::Type.newtype(:zabbix_template_file) do
     desc 'template internal id'
   end
 
-  autorequire(:service) do
-    'zabbix-server'
+  autorequire(:class) do
+    [ 'zabbix::server', 'zabbix::frontend']
   end
 
   # these params are for API access

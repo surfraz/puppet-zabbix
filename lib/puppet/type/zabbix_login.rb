@@ -73,7 +73,7 @@ Puppet::Type.newtype(:zabbix_login) do
 
     def insync?(is)
       should = @should
-      if should == '' or should == nil
+      if should.empty? or should == nil
         return true
       else
         if is == 'FAILED_AUTH'
@@ -116,8 +116,8 @@ Puppet::Type.newtype(:zabbix_login) do
     self[:usergroups]
   end
 
-  autorequire(:service) do
-    'zabbix-server'
+  autorequire(:class) do
+    [ 'zabbix::server', 'zabbix::frontend']
   end
 
   # these params are for API access

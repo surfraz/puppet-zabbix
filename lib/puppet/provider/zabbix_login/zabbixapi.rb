@@ -45,7 +45,6 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
   
   def api
     $zabbix_api
-    #ZabbixApi.connect( :url => resource[:api_url], :user => resource[:api_user], :password => resource[:api_password] )
   end
 
   def exists?
@@ -76,7 +75,6 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
     # get usergroup ids
     group_ids = []
     @resource[:usergroups].each do |groupname|
-      pp groupname
       group_ids << api.query(:method => 'usergroup.get',
                              :params => {
                                  :search => {
@@ -174,12 +172,17 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
   end
 
   def password
-    begin
-      result = ZabbixApi.connect( :url => resource[:api_url], :user => resource[:name], :password => resource[:password] )
-    rescue
-      result = 'FAILED_AUTH'
+    if @resource[:password].empty?
+      return ''
+    else
+      begin
+        result = ZabbixApi.connect( :url => resource[:api_url], :user => @resource[:name], :password => @resource[:password] )
+      rescue
+        result = 'FAILED_AUTH'
+      end
+      return result
     end
-    return result
+
   end
 
   def password=(value)

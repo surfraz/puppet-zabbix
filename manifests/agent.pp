@@ -22,13 +22,15 @@ class zabbix::agent (
     group   => 'zabbix',
   }
 
-  # we need this to monitor the zabbix mysql server
-  file { '/var/lib/zabbix/.my.cnf':
-    ensure  => 'present',
-    source  => '/root/.my.cnf',
-    mode    => '0600',
-    owner   => 'zabbix',
-    group   => 'zabbix',
+  if defined(Class[mysql::server]) {
+    # we need this to monitor the zabbix mysql server
+    file { '/var/lib/zabbix/.my.cnf':
+      ensure  => 'present',
+      source  => '/root/.my.cnf',
+      mode    => '0600',
+      owner   => 'zabbix',
+      group   => 'zabbix',
+    }
   }
 
   file { '/etc/zabbix/zabbix_agentd.conf':

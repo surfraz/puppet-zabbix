@@ -164,8 +164,8 @@ Puppet::Type.newtype(:zabbix_usergroup) do
     end
   end
 
-  autorequire(:service) do
-    'zabbix-server'
+  autorequire(:class) do
+    [ 'zabbix::server', 'zabbix::frontend']
   end
 
   # these params are for API access

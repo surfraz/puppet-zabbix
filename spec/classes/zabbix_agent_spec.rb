@@ -40,14 +40,17 @@ describe 'zabbix::agent' do
                  )
         end
 
-        it 'should copy mysql login file to zabbix home directory' do
-          should contain_file('/var/lib/zabbix/.my.cnf').with(
-              :source   => '/root/.my.cnf',
-              :mode     => '0600',
-              :owner    => 'zabbix',
-              :group    => 'zabbix',
-                 )
-        end
+#        context 'when mysql::server is defined' do
+#          it 'should copy mysql login file to zabbix home
+#directory' do
+#            should contain_file('/var/lib/zabbix/.my.cnf')#.with(
+#                       :source   => '/root/.my.cnf',
+#                       :mode     => '0600',
+#                       :owner    => 'zabbix',
+#                       :group    => 'zabbix',
+#                   )
+#          end
+#        end
 
         it 'should install zabbix agent with configuration' do
           should contain_package('zabbix-agent').with(

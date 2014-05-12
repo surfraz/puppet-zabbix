@@ -28,7 +28,7 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
 
   def self.prefetch(resources)
     resources.each do |name, resource|
-      $zabbix_api || self.prepare_zabbix_connection(resource)
+      self.prepare_zabbix_connection(resource)
       if found = instances.find { |h| h.name == name }
         result = { :ensure => :present }
         result[:name] = found.name
@@ -44,7 +44,7 @@ Puppet::Type.type(:zabbix_login).provide(:zabbixapi) do
   end
   
   def api
-    $zabbix_api
+    $zabbix_api ||= ZabbixApi.connect( :url => resource[:api_url], :user => resource[:api_user], :password => resource[:api_password] )
   end
 
   def exists?

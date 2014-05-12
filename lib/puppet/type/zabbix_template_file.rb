@@ -2,9 +2,9 @@ require 'uri'
 require 'xmlsimple'
 
 def xml_cmp(a, b)
-  a = XmlSimple.xml_in(a.to_s, 'normalisespace' => 2).hash
-  b = XmlSimple.xml_in(b.to_s, 'normalisespace' => 2).hash
-  a.to_s == b.to_s
+  a = XmlSimple.xml_in(a.to_s, 'normalisespace' => 2).to_hash
+  b = XmlSimple.xml_in(b.to_s, 'normalisespace' => 2).to_hash
+  a == b
 end
 
 Puppet::Type.newtype(:zabbix_template_file) do

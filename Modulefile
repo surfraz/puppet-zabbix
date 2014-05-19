@@ -1,5 +1,5 @@
 name    'surfraz-zabbix'
-version '0.0.2'
+version '0.0.3'
 source 'git://github.com/surfraz/puppet-zabbix.git'
 author 'surfraz'
 license 'Apache 2.0'

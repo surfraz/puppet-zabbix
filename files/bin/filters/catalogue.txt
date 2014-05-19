@@ -1,0 +1,135 @@
+jvm::vm::name string
+jvm::vm::version string
+jvm::daemon_thread_count integer
+jvm::thread_count integer
+jvm::uptime seconds
+jvm::fd_usage %
+
+jvm::thread-states::timed_waiting %
+jvm::thread-states::terminated %
+jvm::thread-states::blocked %
+jvm::thread-states::runnable %
+jvm::thread-states::waiting %
+jvm::thread-states::new %
+
+jvm::garbage-collectors::MarkSweepCompact::runs integer
+jvm::garbage-collectors::MarkSweepCompact::time milliseconds
+jvm::garbage-collectors::Copy::runs integer
+jvm::garbage-collectors::Copy::time milliseconds
+
+jvm::memory::totalInit bytes
+jvm::memory::totalUsed bytes
+jvm::memory::totalMax bytes
+jvm::memory::totalCommitted bytes
+jvm::memory::heapInit bytes
+jvm::memory::heapUsed bytes
+jvm::memory::heapMax bytes
+jvm::memory::heapCommitted bytes
+jvm::memory::heap_usage %
+jvm::memory::non_heap_usage %
+jvm::memory::memory_pool_usages::Code Cache %
+jvm::memory::memory_pool_usages::Eden Space %
+jvm::memory::memory_pool_usages::Perm Gen %
+jvm::memory::memory_pool_usages::Survivor Space %
+jvm::memory::memory_pool_usages::Tenured Gen %
+
+cjp.catalogue.resource.ManageProductResource::create::duration::max milliseconds
+cjp.catalogue.resource.ManageProductResource::create::duration::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::create::duration::std_dev milliseconds
+cjp.catalogue.resource.ManageProductResource::create::duration::p999 milliseconds
+cjp.catalogue.resource.ManageProductResource::create::rate::count integer
+cjp.catalogue.resource.ManageProductResource::create::rate::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::create::rate::m1 /s
+cjp.catalogue.resource.ManageProductResource::getLatest::duration::max milliseconds
+cjp.catalogue.resource.ManageProductResource::getLatest::duration::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::getLatest::duration::std_dev milliseconds
+cjp.catalogue.resource.ManageProductResource::getLatest::duration::p999 milliseconds
+cjp.catalogue.resource.ManageProductResource::getLatest::rate::count integer
+cjp.catalogue.resource.ManageProductResource::getLatest::rate::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::getLatest::rate::m1 /s
+cjp.catalogue.resource.ManageProductResource::getVersion::duration::max milliseconds
+cjp.catalogue.resource.ManageProductResource::getVersion::duration::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::getVersion::duration::std_dev milliseconds
+cjp.catalogue.resource.ManageProductResource::getVersion::duration::p999 milliseconds
+cjp.catalogue.resource.ManageProductResource::getVersion::rate::count integer
+cjp.catalogue.resource.ManageProductResource::getVersion::rate::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::getVersion::rate::m1 /s
+cjp.catalogue.resource.ManageProductResource::republishAll::duration::max milliseconds
+cjp.catalogue.resource.ManageProductResource::republishAll::duration::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::republishAll::duration::std_dev milliseconds
+cjp.catalogue.resource.ManageProductResource::republishAll::duration::p999 milliseconds
+cjp.catalogue.resource.ManageProductResource::republishAll::rate::count integer
+cjp.catalogue.resource.ManageProductResource::republishAll::rate::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::republishAll::rate::m1 /s
+cjp.catalogue.resource.ManageProductResource::update::duration::max milliseconds
+cjp.catalogue.resource.ManageProductResource::update::duration::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::update::duration::std_dev milliseconds
+cjp.catalogue.resource.ManageProductResource::update::duration::p999 milliseconds
+cjp.catalogue.resource.ManageProductResource::update::rate::count integer
+cjp.catalogue.resource.ManageProductResource::update::rate::mean milliseconds
+cjp.catalogue.resource.ManageProductResource::update::rate::m1 /s
+cjp.catalogue.resource.ProductResource::getLatest::duration::max milliseconds
+cjp.catalogue.resource.ProductResource::getLatest::duration::mean milliseconds
+cjp.catalogue.resource.ProductResource::getLatest::duration::std_dev milliseconds
+cjp.catalogue.resource.ProductResource::getLatest::duration::p999 milliseconds
+cjp.catalogue.resource.ProductResource::getLatest::rate::count integer
+cjp.catalogue.resource.ProductResource::getLatest::rate::mean milliseconds
+cjp.catalogue.resource.ProductResource::getLatest::rate::m1 /s
+cjp.catalogue.resource.ServiceAddOnResource::get::duration::max milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::get::duration::mean milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::get::duration::std_dev milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::get::duration::p999 milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::get::rate::count integer
+cjp.catalogue.resource.ServiceAddOnResource::get::rate::mean milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::get::rate::m1 /s
+cjp.catalogue.resource.ServiceAddOnResource::update::duration::max milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::update::duration::mean milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::update::duration::std_dev milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::update::duration::p999 milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::update::rate::count integer
+cjp.catalogue.resource.ServiceAddOnResource::update::rate::mean milliseconds
+cjp.catalogue.resource.ServiceAddOnResource::update::rate::m1 /s
+
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::active-connections::count integer
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::connection-duration::duration::mean milliseconds
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::connection-duration::duration::max milliseconds
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::connection-duration::duration::std_dev milliseconds
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::connection-duration::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::requests::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::requests::m1 /s
+
+org.eclipse.jetty.servlet.ServletContextHandler::get-requests::duration::mean milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::get-requests::duration::max milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::get-requests::duration::std_dev milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::get-requests::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::head-requests::duration::mean milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::head-requests::duration::max milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::head-requests::duration::std_dev milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::head-requests::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::post-requests::duration::mean milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::post-requests::duration::max milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::post-requests::duration::std_dev milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::post-requests::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::put-requests::duration::mean milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::put-requests::duration::max milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::put-requests::duration::std_dev milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::put-requests::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::1xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::1xx-responses::m1 /s
+org.eclipse.jetty.servlet.ServletContextHandler::2xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::2xx-responses::m1 /s
+org.eclipse.jetty.servlet.ServletContextHandler::3xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::3xx-responses::m1 /s
+org.eclipse.jetty.servlet.ServletContextHandler::4xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::4xx-responses::m1 /s
+org.eclipse.jetty.servlet.ServletContextHandler::5xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::5xx-responses::m1 /s
+
+org.eclipse.jetty.util.thread.QueuedThreadPool::active-threads::value integer
+org.eclipse.jetty.util.thread.QueuedThreadPool::idle-threads::value integer
+org.eclipse.jetty.util.thread.QueuedThreadPool::percent-idle::value integer

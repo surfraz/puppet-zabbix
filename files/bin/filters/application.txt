@@ -1,0 +1,219 @@
+jvm::vm::name string
+jvm::vm::version string
+jvm::daemon_thread_count integer
+jvm::thread_count integer
+jvm::uptime seconds
+jvm::fd_usage %
+
+jvm::thread-states::timed_waiting %
+jvm::thread-states::terminated %
+jvm::thread-states::blocked %
+jvm::thread-states::runnable %
+jvm::thread-states::waiting %
+jvm::thread-states::new %
+
+jvm::garbage-collectors::MarkSweepCompact::runs integer
+jvm::garbage-collectors::MarkSweepCompact::time milliseconds
+jvm::garbage-collectors::Copy::runs integer
+jvm::garbage-collectors::Copy::time milliseconds
+
+jvm::memory::totalInit bytes
+jvm::memory::totalUsed bytes
+jvm::memory::totalMax bytes
+jvm::memory::totalCommitted bytes
+jvm::memory::heapInit bytes
+jvm::memory::heapUsed bytes
+jvm::memory::heapMax bytes
+jvm::memory::heapCommitted bytes
+jvm::memory::heap_usage %
+jvm::memory::non_heap_usage %
+jvm::memory::memory_pool_usages::Code Cache %
+jvm::memory::memory_pool_usages::Eden Space %
+jvm::memory::memory_pool_usages::Perm Gen %
+jvm::memory::memory_pool_usages::Survivor Space %
+jvm::memory::memory_pool_usages::Tenured Gen %
+
+cjp.application.ApplicationMetrics::submittedApplications.heldInDCJ::value integer
+cjp.application.ApplicationMetrics::submittedApplications.today::value integer
+cjp.application.ApplicationMetrics::submittedApplications.total::value integer
+
+cjp.application.resource.ApplicationPaymentResource::recordPayment::rate::count integer
+cjp.application.resource.ApplicationPaymentResource::recordPayment::rate::m1 /s
+cjp.application.resource.ApplicationPaymentResource::recordPayment::duration::mean milliseconds
+cjp.application.resource.ApplicationPaymentResource::recordPayment::duration::max milliseconds
+cjp.application.resource.ApplicationPaymentResource::recordPayment::duration::std_dev milliseconds
+cjp.application.resource.ApplicationPaymentResource::recordPayment::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationPaymentResource::startPayment::rate::count integer
+cjp.application.resource.ApplicationPaymentResource::startPayment::rate::m1 /s
+cjp.application.resource.ApplicationPaymentResource::startPayment::duration::mean milliseconds
+cjp.application.resource.ApplicationPaymentResource::startPayment::duration::max milliseconds
+cjp.application.resource.ApplicationPaymentResource::startPayment::duration::std_dev milliseconds
+cjp.application.resource.ApplicationPaymentResource::startPayment::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationResource::removeOldApplications::rate::count integer
+cjp.application.resource.ApplicationResource::removeOldApplications::rate::m1 /s
+cjp.application.resource.ApplicationResource::removeOldApplications::duration::mean milliseconds
+cjp.application.resource.ApplicationResource::removeOldApplications::duration::max milliseconds
+cjp.application.resource.ApplicationResource::removeOldApplications::duration::std_dev milliseconds
+cjp.application.resource.ApplicationResource::removeOldApplications::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationResource::startApplication::rate::count integer
+cjp.application.resource.ApplicationResource::startApplication::rate::m1 /s
+cjp.application.resource.ApplicationResource::startApplication::duration::mean milliseconds
+cjp.application.resource.ApplicationResource::startApplication::duration::max milliseconds
+cjp.application.resource.ApplicationResource::startApplication::duration::std_dev milliseconds
+cjp.application.resource.ApplicationResource::startApplication::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationResource::returnApplication::rate::count integer
+cjp.application.resource.ApplicationResource::returnApplication::rate::m1 /s
+cjp.application.resource.ApplicationResource::returnApplication::duration::mean milliseconds
+cjp.application.resource.ApplicationResource::returnApplication::duration::max milliseconds
+cjp.application.resource.ApplicationResource::returnApplication::duration::std_dev milliseconds
+cjp.application.resource.ApplicationResource::returnApplication::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationResource::returnNextBlock::rate::count integer
+cjp.application.resource.ApplicationResource::returnNextBlock::rate::m1 /s
+cjp.application.resource.ApplicationResource::returnNextBlock::duration::mean milliseconds
+cjp.application.resource.ApplicationResource::returnNextBlock::duration::max milliseconds
+cjp.application.resource.ApplicationResource::returnNextBlock::duration::std_dev milliseconds
+cjp.application.resource.ApplicationResource::returnNextBlock::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationResource::updateApplication::rate::count integer
+cjp.application.resource.ApplicationResource::updateApplication::rate::m1 /s
+cjp.application.resource.ApplicationResource::updateApplication::duration::mean milliseconds
+cjp.application.resource.ApplicationResource::updateApplication::duration::max milliseconds
+cjp.application.resource.ApplicationResource::updateApplication::duration::std_dev milliseconds
+cjp.application.resource.ApplicationResource::updateApplication::duration::p999
+
+cjp.application.resource.AuthenticationResource::authenticate::rate::count integer
+cjp.application.resource.AuthenticationResource::authenticate::rate::m1 /s
+cjp.application.resource.AuthenticationResource::authenticate::duration::mean milliseconds
+cjp.application.resource.AuthenticationResource::authenticate::duration::max milliseconds
+cjp.application.resource.AuthenticationResource::authenticate::duration::std_dev milliseconds
+cjp.application.resource.AuthenticationResource::authenticate::duration::p999 milliseconds
+
+cjp.application.resource.PasswordResetResource::reset::rate::count integer
+cjp.application.resource.PasswordResetResource::reset::rate::m1 /s
+
+cjp.application.resource.PasswordResetResource::sendPasswordResetLink::rate::count integer
+cjp.application.resource.PasswordResetResource::sendPasswordResetLink::rate::m1 /s
+
+cjp.application.resource.BlockResource::getBlockData::rate::count integer
+cjp.application.resource.BlockResource::getBlockData::rate::m1 /s
+cjp.application.resource.BlockResource::getBlockData::duration::mean milliseconds
+cjp.application.resource.BlockResource::getBlockData::duration::max milliseconds
+cjp.application.resource.BlockResource::getBlockData::duration::std_dev milliseconds
+cjp.application.resource.BlockResource::getBlockData::duration::p999 milliseconds
+
+cjp.application.resource.BlockResource::getBlockDefinitions::rate::count integer
+cjp.application.resource.BlockResource::getBlockDefinitions::rate::m1 /s
+cjp.application.resource.BlockResource::getBlockDefinitions::duration::mean milliseconds
+cjp.application.resource.BlockResource::getBlockDefinitions::duration::max milliseconds
+cjp.application.resource.BlockResource::getBlockDefinitions::duration::std_dev milliseconds
+cjp.application.resource.BlockResource::getBlockDefinitions::duration::p999 milliseconds
+
+cjp.application.resource.ReferenceDataResource::getReferenceData::rate::count integer
+cjp.application.resource.ReferenceDataResource::getReferenceData::rate::m1 /s
+cjp.application.resource.ReferenceDataResource::getReferenceData::duration::mean milliseconds
+cjp.application.resource.ReferenceDataResource::getReferenceData::duration::max milliseconds
+cjp.application.resource.ReferenceDataResource::getReferenceData::duration::std_dev milliseconds
+cjp.application.resource.ReferenceDataResource::getReferenceData::duration::p999 milliseconds
+
+cjp.application.resource.ReferenceDataResource::getProductReferenceData::rate::count integer
+cjp.application.resource.ReferenceDataResource::getProductReferenceData::rate::m1 /s
+cjp.application.resource.ReferenceDataResource::getProductReferenceData::duration::mean milliseconds
+cjp.application.resource.ReferenceDataResource::getProductReferenceData::duration::max milliseconds
+cjp.application.resource.ReferenceDataResource::getProductReferenceData::duration::std_dev milliseconds
+cjp.application.resource.ReferenceDataResource::getProductReferenceData::duration::p999 milliseconds
+
+org.apache.http.client.HttpClient::connect-requests::rate::count integer
+org.apache.http.client.HttpClient::connect-requests::rate::m1 /s
+org.apache.http.client.HttpClient::connect-requests::duration::mean milliseconds
+org.apache.http.client.HttpClient::connect-requests::duration::max milliseconds
+org.apache.http.client.HttpClient::connect-requests::duration::std_dev milliseconds
+org.apache.http.client.HttpClient::connect-requests::duration::p999 milliseconds
+
+org.apache.http.client.HttpClient::delete-requests::rate::count integer
+org.apache.http.client.HttpClient::delete-requests::rate::m1 /s
+org.apache.http.client.HttpClient::delete-requests::duration::mean milliseconds
+org.apache.http.client.HttpClient::delete-requests::duration::max milliseconds
+org.apache.http.client.HttpClient::delete-requests::duration::std_dev milliseconds
+org.apache.http.client.HttpClient::delete-requests::duration::p999 milliseconds
+
+org.apache.http.client.HttpClient::get-requests::rate::count integer
+org.apache.http.client.HttpClient::get-requests::rate::m1 /s
+org.apache.http.client.HttpClient::get-requests::duration::mean milliseconds
+org.apache.http.client.HttpClient::get-requests::duration::max milliseconds
+org.apache.http.client.HttpClient::get-requests::duration::std_dev milliseconds
+org.apache.http.client.HttpClient::get-requests::duration::p999 milliseconds
+
+org.apache.http.client.HttpClient::head-requests::rate::count integer
+org.apache.http.client.HttpClient::head-requests::rate::m1 /s
+org.apache.http.client.HttpClient::head-requests::duration::mean milliseconds
+org.apache.http.client.HttpClient::head-requests::duration::max milliseconds
+org.apache.http.client.HttpClient::head-requests::duration::std_dev milliseconds
+org.apache.http.client.HttpClient::head-requests::duration::p999 milliseconds
+
+org.apache.http.client.HttpClient::post-requests::rate::count integer
+org.apache.http.client.HttpClient::post-requests::rate::m1 /s
+org.apache.http.client.HttpClient::post-requests::duration::mean milliseconds
+org.apache.http.client.HttpClient::post-requests::duration::max milliseconds
+org.apache.http.client.HttpClient::post-requests::duration::std_dev milliseconds
+org.apache.http.client.HttpClient::post-requests::duration::p999 milliseconds
+
+org.apache.http.client.HttpClient::put-requests::rate::count integer
+org.apache.http.client.HttpClient::put-requests::rate::m1 /s
+org.apache.http.client.HttpClient::put-requests::duration::mean milliseconds
+org.apache.http.client.HttpClient::put-requests::duration::max milliseconds
+org.apache.http.client.HttpClient::put-requests::duration::std_dev milliseconds
+org.apache.http.client.HttpClient::put-requests::duration::p999 milliseconds
+
+org.apache.http.conn.ClientConnectionManager::available-connections::value integer
+org.apache.http.conn.ClientConnectionManager::leased-connections::value integer
+org.apache.http.conn.ClientConnectionManager::max-connections::value integer
+org.apache.http.conn.ClientConnectionManager::pending-connections::value integer
+
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::active-connections::count integer
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::connection-duration::duration::mean milliseconds
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::connection-duration::duration::max milliseconds
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::connection-duration::duration::std_dev milliseconds
+org.eclipse.jetty.server.nio.BlockingChannelConnector.8080::connection-duration::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::requests::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::requests::m1 /s
+
+org.eclipse.jetty.servlet.ServletContextHandler::get-requests::duration::mean milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::get-requests::duration::max milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::get-requests::duration::std_dev milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::get-requests::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::head-requests::duration::mean milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::head-requests::duration::max milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::head-requests::duration::std_dev milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::head-requests::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::post-requests::duration::mean milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::post-requests::duration::max milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::post-requests::duration::std_dev milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::post-requests::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::put-requests::duration::mean milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::put-requests::duration::max milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::put-requests::duration::std_dev milliseconds
+org.eclipse.jetty.servlet.ServletContextHandler::put-requests::duration::p999 milliseconds
+
+org.eclipse.jetty.servlet.ServletContextHandler::1xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::1xx-responses::m1 /s
+org.eclipse.jetty.servlet.ServletContextHandler::2xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::2xx-responses::m1 /s
+org.eclipse.jetty.servlet.ServletContextHandler::3xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::3xx-responses::m1 /s
+org.eclipse.jetty.servlet.ServletContextHandler::4xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::4xx-responses::m1 /s
+org.eclipse.jetty.servlet.ServletContextHandler::5xx-responses::count integer
+org.eclipse.jetty.servlet.ServletContextHandler::5xx-responses::m1 /s
+
+org.eclipse.jetty.util.thread.QueuedThreadPool::active-threads::value integer
+org.eclipse.jetty.util.thread.QueuedThreadPool::idle-threads::value integer
+org.eclipse.jetty.util.thread.QueuedThreadPool::percent-idle::value integer

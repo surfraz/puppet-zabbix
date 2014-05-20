@@ -6,7 +6,7 @@ require 'net/http'
 require 'lib/zabbix'
 
 url = ARGV[0]
-itemsfile = 'filters/' + ARGV[1]
+itemsfile = ARGV[1]
 itemprefix = ARGV[2]
 host = %x(facter fqdn)
 

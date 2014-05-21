@@ -4,6 +4,6 @@
 
 Defaults:zabbix !authenticate,!requiretty
 
-Cmnd_Alias    DISCOVERY = /bin/netstat --tcp --listening --numeric --program, /bin/netstat --udp --listening --numeric --program, /usr/sbin/dmidecode -s [a-zA-Z-]*, /usr/sbin/service [[\:alpha\:]]* [[\:alpha\:]]*, /usr/sbin/postqueue -p, /usr/sbin/qshape, /usr/bin/lsof -p [0-9]*, /bin/cat /proc/[0-9]*/smaps
+Cmnd_Alias    DISCOVERY = /bin/netstat --tcp --listening --numeric --program, /bin/netstat --udp --listening --numeric --program, /usr/sbin/dmidecode -s [a-zA-Z-]*, /usr/sbin/service [[\:alpha\:]]* [[\:alpha\:]]*, /usr/sbin/postqueue -p, /usr/sbin/qshape, /usr/bin/lsof -p [0-9]*, /bin/cat /proc/[0-9]*/smaps, /bin/nc -U /var/run/haproxy.sock
 
 zabbix  ALL=(root)  NOPASSWD:DISCOVERY

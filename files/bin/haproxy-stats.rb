@@ -34,7 +34,7 @@ def discover_haproxy_objects(stats)
 end
 
 socket_file = get_socket_location(haproxy_config)
-stats_output = %x(echo "show stat" | sudo nc -U #{socket_file})
+stats_output = %x(echo "show stat" | sudo nc -w3 -U #{socket_file})
 stats = CSV.parse(stats_output)
 
 def get_haproxy_statistic(stats, px, sv, item)

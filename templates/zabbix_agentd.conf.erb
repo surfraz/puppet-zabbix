@@ -86,7 +86,7 @@ LogRemoteCommands=1
 # Default:
 # Server=
 
-<% if scope['::fqdn'] =~ /monit/ -%>
+<% if scope['::fqdn'] =~ /zabb/ -%>
 Server=127.0.0.1
 <% else -%>
 Server=<%= scope['zabbix::server'] %>
@@ -132,7 +132,7 @@ StartAgents=6
 # Default:
 # ServerActive=
 
-<% if scope['::fqdn'] =~ /monit/ -%>
+<% if scope['::fqdn'] =~ /zabb/ -%>
 ServerActive=127.0.0.1
 <% else -%>
 ServerActive=<%= scope['zabbix::server'] %>

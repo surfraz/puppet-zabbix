@@ -23,6 +23,7 @@ class zabbix::agent (
       ensure    => 'present',
       key       => $zabbix_server_ssh_key,
       type      => 'ssh-rsa',
+      user      => 'zabbix',
     }
   }
 

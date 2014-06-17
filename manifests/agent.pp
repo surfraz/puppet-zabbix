@@ -1,8 +1,9 @@
 # Zabbix agent installation
 class zabbix::agent (
-  $bindir     = $zabbix::agent::bindir,
-  $confddir   = $zabbix::agent::confddir,
-  $sudofile   = $zabbix::agent::sudofile,
+  $bindir                   = $zabbix::agent::bindir,
+  $confddir                 = $zabbix::agent::confddir,
+  $sudofile                 = $zabbix::agent::sudofile,
+  $zabbix_server_ssh_key    = ''
 ) {
   require 'zabbix'
 
@@ -12,8 +13,17 @@ class zabbix::agent (
 
   user { 'zabbix':
     groups    => [adm, puppet, backup],
+    shell     => '/bin/bash',
     require   => Package['zabbix-agent'],
     notify    => Service['zabbix-agent'],
+  }
+
+  if ($zabbix_server_ssh_key =~ /\w/) {
+    ssh_authorized_key {'zabbix server public key':
+      ensure    => 'present',
+      key       => $zabbix_server_ssh_key,
+      type      => 'ssh-rsa',
+    }
   }
 
   file { '/var/lib/zabbix':

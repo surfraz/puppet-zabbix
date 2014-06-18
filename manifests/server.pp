@@ -42,6 +42,15 @@ class zabbix::server (
     require => Package['zabbix-server-mysql'],
   }
 
+  file { '/usr/lib/zabbix/externalscripts/run_via_ssh.sh':
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    source  => 'puppet:///modules/zabbix/scripts/run_via_ssh.sh',
+    require => Package['zabbix-server'],
+  }
+
   service {'zabbix-server':
     ensure    => running,
     enable    => true,

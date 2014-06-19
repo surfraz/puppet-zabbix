@@ -37,6 +37,8 @@ cjp.application.ApplicationMetrics::submittedApplications.heldInDCJ::value integ
 cjp.application.ApplicationMetrics::submittedApplications.today::value integer
 cjp.application.ApplicationMetrics::submittedApplications.total::value integer
 
+cjp.application.ApplicationMetrics::allApplications.heldInDCJ::value integer
+
 cjp.application.resource.ApplicationPaymentResource::recordPayment::rate::count integer
 cjp.application.resource.ApplicationPaymentResource::recordPayment::rate::m1 /s
 cjp.application.resource.ApplicationPaymentResource::recordPayment::duration::mean milliseconds

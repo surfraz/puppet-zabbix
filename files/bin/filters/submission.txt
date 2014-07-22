@@ -1,0 +1,5 @@
+gauges::new integer
+gauges::in progress integer
+gauges::erred integer
+gauges::expired integer
+gauges::failed integer

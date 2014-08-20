@@ -39,12 +39,26 @@ cjp.application.ApplicationMetrics::submittedApplications.total::value integer
 
 cjp.application.ApplicationMetrics::allApplications.heldInDCJ::value integer
 
+cjp.application.resource.report.WorldPayTransactionResource::receiveTransactionReport::rate::count integer
+cjp.application.resource.report.WorldPayTransactionResource::receiveTransactionReport::rate::m1 /s
+cjp.application.resource.report.WorldPayTransactionResource::receiveTransactionReport::duration::mean milliseconds
+cjp.application.resource.report.WorldPayTransactionResource::receiveTransactionReport::duration::max milliseconds
+cjp.application.resource.report.WorldPayTransactionResource::receiveTransactionReport::duration::std_dev milliseconds
+cjp.application.resource.report.WorldPayTransactionResource::receiveTransactionReport::duration::p999 milliseconds
+
 cjp.application.resource.ApplicationPaymentResource::recordPayment::rate::count integer
 cjp.application.resource.ApplicationPaymentResource::recordPayment::rate::m1 /s
 cjp.application.resource.ApplicationPaymentResource::recordPayment::duration::mean milliseconds
 cjp.application.resource.ApplicationPaymentResource::recordPayment::duration::max milliseconds
 cjp.application.resource.ApplicationPaymentResource::recordPayment::duration::std_dev milliseconds
 cjp.application.resource.ApplicationPaymentResource::recordPayment::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationPaymentResource::recordPaymentNotification::rate::count integer
+cjp.application.resource.ApplicationPaymentResource::recordPaymentNotification::rate::m1 /s
+cjp.application.resource.ApplicationPaymentResource::recordPaymentNotification::duration::mean milliseconds
+cjp.application.resource.ApplicationPaymentResource::recordPaymentNotification::duration::max milliseconds
+cjp.application.resource.ApplicationPaymentResource::recordPaymentNotification::duration::std_dev milliseconds
+cjp.application.resource.ApplicationPaymentResource::recordPaymentNotification::duration::p999 milliseconds
 
 cjp.application.resource.ApplicationPaymentResource::startPayment::rate::count integer
 cjp.application.resource.ApplicationPaymentResource::startPayment::rate::m1 /s
@@ -59,6 +73,27 @@ cjp.application.resource.ApplicationResource::removeOldApplications::duration::m
 cjp.application.resource.ApplicationResource::removeOldApplications::duration::max milliseconds
 cjp.application.resource.ApplicationResource::removeOldApplications::duration::std_dev milliseconds
 cjp.application.resource.ApplicationResource::removeOldApplications::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationResource::getAppointmentSlots::rate::count integer
+cjp.application.resource.ApplicationResource::getAppointmentSlots::rate::m1 /s
+cjp.application.resource.ApplicationResource::getAppointmentSlots::duration::mean milliseconds
+cjp.application.resource.ApplicationResource::getAppointmentSlots::duration::max milliseconds
+cjp.application.resource.ApplicationResource::getAppointmentSlots::duration::std_dev milliseconds
+cjp.application.resource.ApplicationResource::getAppointmentSlots::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationResource::rearrangeAppointment::rate::count integer
+cjp.application.resource.ApplicationResource::rearrangeAppointment::rate::m1 /s
+cjp.application.resource.ApplicationResource::rearrangeAppointment::duration::mean milliseconds
+cjp.application.resource.ApplicationResource::rearrangeAppointment::duration::max milliseconds
+cjp.application.resource.ApplicationResource::rearrangeAppointment::duration::std_dev milliseconds
+cjp.application.resource.ApplicationResource::rearrangeAppointment::duration::p999 milliseconds
+
+cjp.application.resource.ApplicationResource::refund::rate::count integer
+cjp.application.resource.ApplicationResource::refund::rate::m1 /s
+cjp.application.resource.ApplicationResource::refund::duration::mean milliseconds
+cjp.application.resource.ApplicationResource::refund::duration::max milliseconds
+cjp.application.resource.ApplicationResource::refund::duration::std_dev milliseconds
+cjp.application.resource.ApplicationResource::refund::duration::p999 milliseconds
 
 cjp.application.resource.ApplicationResource::startApplication::rate::count integer
 cjp.application.resource.ApplicationResource::startApplication::rate::m1 /s
@@ -94,6 +129,13 @@ cjp.application.resource.AuthenticationResource::authenticate::duration::mean mi
 cjp.application.resource.AuthenticationResource::authenticate::duration::max milliseconds
 cjp.application.resource.AuthenticationResource::authenticate::duration::std_dev milliseconds
 cjp.application.resource.AuthenticationResource::authenticate::duration::p999 milliseconds
+
+cjp.application.resource.ProductResource::get::rate::count integer
+cjp.application.resource.ProductResource::get::rate::m1 /s
+cjp.application.resource.ProductResource::get::duration::mean milliseconds
+cjp.application.resource.ProductResource::get::duration::max milliseconds
+cjp.application.resource.ProductResource::get::duration::std_dev milliseconds
+cjp.application.resource.ProductResource::get::duration::p999 milliseconds
 
 cjp.application.resource.PasswordResetResource::reset::rate::count integer
 cjp.application.resource.PasswordResetResource::reset::rate::m1 /s

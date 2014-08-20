@@ -4,6 +4,6 @@
 
 Defaults:zabbix !authenticate,!requiretty
 
-Cmnd_Alias    DISCOVERY = /bin/netstat --tcp --listening --numeric --program, /bin/netstat --udp --listening --numeric --program, /usr/sbin/dmidecode -s [a-zA-Z-]*, /usr/sbin/service [[\:alpha\:]-_.]* [[\:alpha\:]-_.]*, /usr/sbin/postqueue -p, /usr/sbin/qshape, /usr/bin/lsof -p [0-9]*, /bin/cat /proc/[0-9]*/smaps, /bin/nc -w3 -U /var/run/haproxy.sock, /sbin/reboot, /usr/sbin/ipsec status, /usr/sbin/ipsec restart, /usr/bin/mongo --quiet, /usr/bin/tail -n [0-9]* /var/log/[a-zA-Z0-9_./-]*
+Cmnd_Alias    DISCOVERY = /bin/netstat --tcp --listening --numeric --program, /bin/netstat --udp --listening --numeric --program, /usr/sbin/dmidecode -s [a-zA-Z-]*, /usr/sbin/service [[\:alpha\:]-_.]* [[\:alpha\:]-_.]*, /usr/sbin/postqueue -p, /usr/sbin/qshape, /usr/bin/lsof -p [0-9]*, /bin/cat /proc/[0-9]*/smaps, /bin/nc -w3 -U /var/run/haproxy.sock, /sbin/reboot, /usr/sbin/ipsec status, /usr/sbin/ipsec restart, /usr/bin/mongo --quiet, /usr/bin/tail -n [0-9]* /var/log/[a-zA-Z0-9_./-]*, /etc/zabbix/bin/suid-files.sh
 
 zabbix  ALL=(root)  NOPASSWD:DISCOVERY

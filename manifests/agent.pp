@@ -58,6 +58,7 @@ class zabbix::agent (
       recurse => true,
       owner   => 'zabbix',
       group   => 'zabbix',
+      mode    => 'ug+x',
       notify  => Service['zabbix-agent'],
       require => Package['zabbix-agent'],
     }

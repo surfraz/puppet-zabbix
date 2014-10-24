@@ -20,15 +20,21 @@ class zabbix (
 
   require 'wget'
 
+  # #TODO extend this to support other versions
+  $repo_installation_deb = $operatingsystem ? {
+    Ubuntu    => 'http://repo.zabbix.com/zabbix/2.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_2.2-1+precise_all.deb',
+    Debian    => 'http://repo.zabbix.com/zabbix/2.2/debian/pool/main/z/zabbix-release/zabbix-release_2.2-1+squeeze_all.deb',
+  }
+
   wget::fetch { 'zabbix repo installer':
-    source        => 'http://repo.zabbix.com/zabbix/2.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_2.2-1+precise_all.deb',
-    destination   => '/var/tmp/zabbix-release_2.2-1+precise_all.deb',
+    source        => $repo_installation_deb,
+    destination   => '/var/tmp/zabbix-repo.deb',
     timeout       => '60',
     verbose       => false,
   }
 
   exec { 'install zabbix repo':
-    command     => 'dpkg -i /var/tmp/zabbix-release_2.2-1+precise_all.deb && apt-get update',
+    command     => 'dpkg -i /var/tmp/zabbix-repo.deb && apt-get update',
     unless      => 'test -f /etc/apt/sources.list.d/zabbix.list',
     require     => Wget::Fetch['zabbix repo installer'],
     path        => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],

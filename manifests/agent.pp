@@ -88,10 +88,15 @@ class zabbix::agent (
     }
   }
 
+  $init_provider = $operatingsystem ? {
+    Ubuntu    => 'upstart',
+    default   => 'init',
+  }
+
   service {'zabbix-agent':
     ensure    => running,
     enable    => true,
-    provider  => 'upstart',
+    provider  => $init_provider,
     require   => File['/etc/zabbix/zabbix_agentd.conf'],
   }
 }

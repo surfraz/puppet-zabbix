@@ -1,0 +1,1 @@
+UserParameter=redis[*],/etc/zabbix/bin/redis_checks.sh $1 $2 $3

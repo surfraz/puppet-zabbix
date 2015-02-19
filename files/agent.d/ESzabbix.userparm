@@ -1,0 +1,1 @@
+UserParameter=ESzabbix[*],/etc/zabbix/bin/ESzabbix.rb $1 $2

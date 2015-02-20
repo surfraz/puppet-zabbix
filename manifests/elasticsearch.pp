@@ -2,9 +2,9 @@
 class zabbix::elasticsearch {
   require 'zabbix::agent'
 
-  package { 'elasticsearch':
-    ensure          => installed,
-    provider        => 'gem',
-    install_options => '--no-user-install',
+  exec {'install-elasticsearch-gem':
+    command => 'gem install elasticsearch --no-user-install',
+    onlyif  => 'gem list elasticsearch | grep -v "^elasticsearch"',
+    path    => ['/bin', '/usr/bin', '/usr/sbin'],
   }
 }

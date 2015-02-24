@@ -8,7 +8,7 @@ socket_file = ''
 def get_socket_location(file)
   socket = ''
   File.open(file).readlines.each do |line|
-    if line =~ /^\s+stats\s+socket\s+(\S+)+/
+    if line =~ /^\s+stats\s+socket\s+(\S+)/
       socket = $1
     end
   end

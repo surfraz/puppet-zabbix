@@ -10,7 +10,6 @@
 # This is by no means an exhaustive list.  It could be extended to report pubsub or other statistics.
 # Just fill in the gaps.
 
-PIDFILE=/var/run/redis/redis.pid
 PATH=/opt/zabbix/bin:$PATH:/usr/local/bin
 
 # $1 = Zabbix "key," or the redis INFO key whose value we want
@@ -30,11 +29,7 @@ else
 fi
 
 case "$1" in
-  "running"   	) if [ -e "${PIDFILE}" ]; then
-			RESULT=$(ps auwwx | grep $(cat ${PIDFILE}) | grep -c redis-server)
-	          else
-			RESULT=0
-	  	  fi 
+  "running") RESULT=$(ps auwwx | grep -v grep | grep -c redis-server)
 		  ;;
   "list_length"	) # We need a second arg here:
 		  if [ "x$2" = "x" ]; then

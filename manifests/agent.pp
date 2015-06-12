@@ -11,6 +11,10 @@ class zabbix::agent (
     ensure  => installed,
   }
 
+  package { 'ruby-rest-client':
+    ensure => installed, 
+  }
+
   user { 'zabbix':
     groups    => [adm, puppet, backup],
     shell     => '/bin/bash',

@@ -2,7 +2,6 @@
 
 require "rubygems"
 require "json"
-require "pp"
 
 def usage
 	puts "endpoint-handler.rb [url] [route] [name]"

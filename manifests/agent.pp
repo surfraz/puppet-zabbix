@@ -8,7 +8,7 @@ class zabbix::agent (
   require 'zabbix'
 
   package { 'zabbix-agent':
-    ensure  => installed,
+    ensure  => latest,
   }
 
   package { 'ruby-rest-client':

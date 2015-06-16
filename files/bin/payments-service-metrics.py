@@ -28,6 +28,18 @@ logging.basicConfig(
 JSON_FILE = '/var/tmp/payments-service-metrics.json'
 METRICS_ENDPOINT = 'http://localhost:3050/metrics'
 
+# validate cache file
+def validate_cache_file(json_file):
+    try:
+        with open(json_file) as cache_file: 
+            json.load(cache_file)
+    except Exception as e:
+        logging.error("Cache file (%s) is invalid: %s", json_file, e)
+        return False
+
+    return True
+
+
 # Check age of metrics.json file
 def metrics_cache_expired(json_file, max_age=600):
     """ 
@@ -36,10 +48,16 @@ def metrics_cache_expired(json_file, max_age=600):
     :arg json_file: metrics cache - a json file
     :arg max_age: maximum age (seconds) of metrics file before its considered expired
     """
-    if os.path.exists(json_file):
-        age = time.time() - os.stat(json_file).st_ctime
-        if age <= max_age: 
-            return False
+    if not os.path.exists(json_file):
+        return True
+
+    if not validate_cache_file(json_file): 
+        return True
+
+    age = time.time() - os.stat(json_file).st_ctime
+    logging.debug("Cache file (%s) age: %s", json_file, age)
+    if age <= max_age: 
+        return False
 
     return True
 
@@ -53,9 +71,11 @@ def fetch_metrics(json_file):
     :arg json_file: metrics cache - a json file
     """
     try:
-        f = open(json_file, 'w')
-        f.write(urllib2.urlopen(METRICS_ENDPOINT).read())
-        f.close()
+        response = urllib2.urlopen(METRICS_ENDPOINT).read()
+        # check response is a valide json object
+        if json.loads(response):
+            with open(json_file, 'w') as f:
+                f.write(response)
     except Exception as e:
         logging.error("Failed to write metrics to file: \n%s", e)
         return False
@@ -64,7 +84,7 @@ def fetch_metrics(json_file):
 
 
 # Read metrics.json file (handle exception)
-def payments_metrics(json_file):
+def payment_methods_metrics(json_file):
     """ 
     Returns dictionary of metrics
     
@@ -224,7 +244,7 @@ if __name__ == '__main__':
     else:
         json_file = opts['json_file']
 
-    metrics = payments_metrics(json_file)
+    metrics = payment_methods_metrics(json_file)
     if not metrics:
         sys.exit(1)
 

@@ -38,8 +38,7 @@ name=ARGV[2]
 
 fileExpiry = 60 # time after which to re-read file (in seconds)
 
-#workDir="/var/lib/zabbix/endpoint-handler"
-workDir="/tmp/eh"
+workDir="/var/lib/zabbix/endpoint-handler"
 
 if(!File.directory?(workDir))
 	Dir.mkdir(workDir)
